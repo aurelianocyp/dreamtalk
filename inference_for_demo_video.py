@@ -93,7 +93,7 @@ def inference_one_video(
         if style_pad_mask_raw is not None
         else None
     )
-
+    # diff_net来自于core/networks/diffusion_net.py
     gen_exp_stack = diff_net.sample(
         audio,
         style_clip,
@@ -213,6 +213,7 @@ if __name__ == "__main__":
         diff_net = get_diff_net(cfg, device).to(device)
         # generate face motion
         face_motion_path = os.path.join(tmp_dir, f"{args.output_name}_facemotion.npy")
+        # 关键！！！获取三维模型。下一行代码就是渲染了
         inference_one_video(
             cfg,
             audio_feat_path,

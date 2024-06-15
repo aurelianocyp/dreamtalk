@@ -1,15 +1,3 @@
-<h2 align="center">DreamTalk: When Expressive Talking Head Generation <br> Meets Diffusion Probabilistic Models</h2>
-<p align="center">
-  <a href='https://dreamtalk-project.github.io/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/abs/2312.09767'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> <a href='https://youtu.be/VF4vlE6ZqWQ'><img src='https://badges.aleen42.com/src/youtube.svg'></a>
-</p>
-
-![teaser](media/teaser.gif "teaser")
-
-DreamTalk is a diffusion-based audio-driven expressive talking head generation framework that can produce high-quality talking head videos across diverse speaking styles. DreamTalk exhibits robust performance with a diverse array of inputs, including songs, speech in multiple languages, noisy audio, and out-of-domain portraits.
-
-## News
-- __[2023.12]__ Release inference code and pretrained checkpoint.
-
 ## Installation
 
 ```
@@ -76,29 +64,4 @@ If you want to run this program on CPU, please add `--device=cpu` to the command
 The main goal of this method is to achieve accurate lip-sync and produce vivid expressions across diverse speaking styles. The resolution was not considered in the initial design process. There are two ad-hoc solutions to improve resolution. The first option is to utilize [CodeFormer](https://github.com/sczhou/CodeFormer), which can achieve a resolution of $1024\times1024$; however, it is relatively slow, processing only one frame per second on an A100 GPU, and suffers from issues with temporal inconsistency. The second option is to employ the Temporal Super-Resolution Model from [MetaPortrait](https://github.com/Meta-Portrait/MetaPortrait), which attains a resolution of $512\times512$, offers a faster performance of 10 frames per second, and maintains temporal coherence. However, these super-resolution modules may reduce the intensity of facial emotions.
 
 The sample results after super-resolution processing are in the `output_video` folder.
-
-## Acknowledgements
-
-We extend our heartfelt thanks for the invaluable contributions made by preceding works to the development of DreamTalk. This includes, but is not limited to:
-[PIRenderer](https://github.com/RenYurui/PIRender)
-,[AVCT](https://github.com/FuxiVirtualHuman/AAAI22-one-shot-talking-face)
-,[StyleTalk](https://github.com/FuxiVirtualHuman/styletalk)
-,[Deep3DFaceRecon_pytorch](https://github.com/sicxu/Deep3DFaceRecon_pytorch)
-,[Wav2vec2.0](https://huggingface.co/jonatasgrosman/wav2vec2-large-xlsr-53-english)
-,[diffusion-point-cloud](https://github.com/luost26/diffusion-point-cloud)
-,[FOMM video preprocessing](https://github.com/AliaksandrSiarohin/video-preprocessing). We are dedicated to advancing upon these foundational works with the utmost respect for their original contributions.
-
-## Citation
-If you find this codebase useful for your research, please use the following entry.
-```BibTeX
-@article{ma2023dreamtalk,
-  title={DreamTalk: When Expressive Talking Head Generation Meets Diffusion Probabilistic Models},
-  author={Ma, Yifeng and Zhang, Shiwei and Wang, Jiayu and Wang, Xiang and Zhang, Yingya and Deng, Zhidong},
-  journal={arXiv preprint arXiv:2312.09767},
-  year={2023}
-}
-```
-## Disclaimer
-
-This method is intended for <strong>RESEARCH/NON-COMMERCIAL USE ONLY</strong>. 
 
